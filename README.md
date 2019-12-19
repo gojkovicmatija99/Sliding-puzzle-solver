@@ -38,6 +38,6 @@ The Sliding puzzle game consists of a frame of numbered square tiles in random o
 8-puzzle: can be solved using any algorithm and heuristic  
 15-puzzle: can be solved using IDA* or tile by tile paired with linear conflict  
 24-puzzle: can be solved using tile by tile paired with linear conflict  
-36-puzzle: same as 24-puzzle but it may take a few minutes to solve
+35-puzzle: same as 24-puzzle but it may take a few minutes to solve
 
 ![alt text](https://github.com/gojkovicmatija99/Sliding-puzzle-solver/blob/master/SlidingPuzzleSolver/src/view/images/Capture.PNG)
