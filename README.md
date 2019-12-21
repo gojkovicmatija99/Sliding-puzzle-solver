@@ -34,10 +34,16 @@ The Sliding puzzle game consists of a frame of numbered square tiles in random o
 
 **Linear conflict**: Tiles t1 and t2 are in a linear conflict if t1 and t2 are the same line, the goal positions of t1 and t2 are both in that line, t1 is to the right of t2 , and goal position of t1 is to the left of the goal position of t2. It is calculated as manhattanDistance + 2*linearConflict.
 
-# How to use
+# How to use  
+User can set a custom board by typing in the grid (not all puzzles are solvable) or by pressing the random button (all generated puzzles are solvable).  
+
 8-puzzle: can be solved using any algorithm and heuristic  
 15-puzzle: can be solved using IDA* or tile by tile paired with linear conflict  
 24-puzzle: can be solved using tile by tile paired with linear conflict  
 35-puzzle: same as 24-puzzle but it may take a few minutes to solve
 
+
+
 ![alt text](https://github.com/gojkovicmatija99/Sliding-puzzle-solver/blob/master/SlidingPuzzleSolver/src/view/images/Capture.PNG)
+
+Image is only available on 3x3, 4x4 and 5x5 puzzles.
