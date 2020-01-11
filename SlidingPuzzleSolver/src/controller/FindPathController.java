@@ -50,8 +50,10 @@ public class FindPathController implements EventHandler<ActionEvent> {
 				throw new PuzzleNumbersException(maxNum);
 			}
 			
-			if(usesImage)
+			if(usesImage) {
 				MainView.getInstance().setImages(initalBoard);
+				MainView.getInstance().clearAll();
+			}
 				
 			State.setHeuristic(selectedHeuristic(initialState,goalState));
 			Algorithm algorithm=selectedAlgorithm(initialState, goalState);
@@ -76,7 +78,8 @@ public class FindPathController implements EventHandler<ActionEvent> {
 						    @Override public void run() {				    							    	
 						    	if(usesImage)
 						    		MainView.getInstance().setImages(path.peek().getBoard());
-						    	MainView.getInstance().setTfsStart(path.peek().getBoard());
+						    	else
+						    		MainView.getInstance().setTfsStart(path.peek().getBoard());
 						    	path.pop();
 								
 								int numOfSteps=algorithm.getNumOfSteps();

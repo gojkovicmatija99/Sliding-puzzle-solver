@@ -254,6 +254,12 @@ public class MainView extends Stage implements ISubscriber{
 			}
 	}
 	
+	public void clearAll() {
+		for(int i=0;i<rows;i++)
+			for(int j=0;j<columns;j++)
+					tfsStart[i][j].setText("");
+	}
+	
 	public void setImages(int [][] board)
 	{
 		for(int i=0;i<rows;i++)
