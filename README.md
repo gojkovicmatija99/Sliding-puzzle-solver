@@ -22,7 +22,7 @@ The Sliding puzzle game consists of a frame of numbered square tiles in random o
 *Pros:* does not store too many states  
 *Cons:* visits same states
 
-**Tile by tile** is based on divide and conquer paradigm where the puzzle is divided into two parts: upper and lower half. The upper half works by solving two by two tiles and when a row is completed, cut it and don't search it anymore. The lower half works like the previous algorithms by solving the puzzle all at once. It is implemented using IDA*.  
+**Tile by tile** is a algorithm where the puzzle is divided into two parts: upper and lower half. The upper half works by solving two by two tiles and when a row is completed, cut it and don't search it anymore. The lower half works like the previous algorithms by solving the puzzle all at once. It is implemented using IDA*.  
 *Pros:* much more efficient than previous algorithms despite puzzle size  
 *Cons:* uses too many unnecessary moves
 

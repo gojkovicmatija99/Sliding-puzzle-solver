@@ -224,7 +224,7 @@ public class MainView extends Stage implements ISubscriber{
 		
 		cbImage.setSelected(false);
 		gp5.getChildren().remove(cbImage);
-		if(rows==columns && rows<7)
+		if(rows==columns && rows<6)
 			gp5.add(cbImage, 0, 0);	
 		
 		previousStartBoard=null;
