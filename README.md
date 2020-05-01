@@ -44,6 +44,4 @@ User can set a custom board by typing in the grid (not all custom puzzles are so
 
 
 
-![alt text](https://github.com/gojkovicmatija99/Sliding-puzzle-solver/blob/master/SlidingPuzzleSolver/src/view/images/Demo.PNG)
-
-Image is only available on 3x3, 4x4 and 5x5 puzzles.
+![alt text](https://github.com/gojkovicmatija99/Sliding-puzzle-solver/blob/master/SlidingPuzzleSolver/src/view/images/Demo.png)
