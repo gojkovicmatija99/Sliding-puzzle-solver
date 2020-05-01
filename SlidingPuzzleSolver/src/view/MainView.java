@@ -3,11 +3,7 @@ package view;
 import java.text.NumberFormat;
 import java.util.Locale;
 
-import controller.ClearBoardController;
-import controller.FindPathController;
-import controller.RandomBoardController;
-import controller.ResetBoardController;
-import controller.SetBoardController;
+import controller.*;
 import javafx.application.Platform;
 import javafx.geometry.Insets;
 import javafx.geometry.Pos;
@@ -21,6 +17,7 @@ import javafx.scene.control.TextField;
 import javafx.scene.image.Image;
 import javafx.scene.layout.GridPane;
 
+import javafx.stage.FileChooser;
 import javafx.stage.Stage;
 import model.algorithm.AlgorithmType;
 import model.heuristic.HeuristicType;
@@ -32,6 +29,7 @@ public class MainView extends Stage implements ISubscriber{
 	private int columns;
 	private int[][] previousStartBoard;
 	private boolean isSetBoard=false;
+	private long timestamp;
 	
 	private TextField[][] tfsStart;
 	private TextField tfLvl;
@@ -46,6 +44,7 @@ public class MainView extends Stage implements ISubscriber{
 	private Button btnResetBoard;
 	private Button btnClearBoard;
 	private Button btnRandomBoard;
+	private Button btnImageChooser;
 	private GridPane gpMain;
 	private GridPane gp;
 	private GridPane gp2;
@@ -66,6 +65,7 @@ public class MainView extends Stage implements ISubscriber{
 	private RandomBoardController randomBoardController;
 	private ClearBoardController clearBoardController;
 	private ResetBoardController resetBoardController;
+	private ChooseImageController chooseImageController;
 	
 	public static MainView getInstance() {
 		if(instance==null)
@@ -125,13 +125,13 @@ public class MainView extends Stage implements ISubscriber{
 		btnClearBoard.setOnAction(clearBoardController);
 		randomBoardController=new RandomBoardController();
 		btnRandomBoard.setOnAction(randomBoardController);
-			
+
 		Scene sc=new Scene(gpMain);
 		sc.getStylesheets().add("view/stylesheet.css");
 		setScene(sc);
 		show();
 	}
-	
+
 	public void setBoard()
 	{
 		gpMain.getChildren().remove(gp);
@@ -140,7 +140,7 @@ public class MainView extends Stage implements ISubscriber{
 		gp.setVgap(1);
 		gp.setHgap(1);
 		gp.setPadding(new Insets(20));
-		
+
 		tfsStart=new TextField[rows][columns];
 		for(int i=0;i<rows;i++)
 			for(int j=0;j<columns;j++)
@@ -195,6 +195,7 @@ public class MainView extends Stage implements ISubscriber{
 			gp5.setVgap(10);
 			gp5.setPadding(new Insets(20));
 			cbImage=new CheckBox("Image");
+			btnImageChooser=new Button("Choose Image");
 			lbSpeed=new Label("Speed (ms)");
 			cmbSpeed=new ComboBox<Integer>();
 			cmbSpeed.getItems().add(100);
@@ -202,8 +203,10 @@ public class MainView extends Stage implements ISubscriber{
 			cmbSpeed.getItems().add(1000);
 			cmbSpeed.getSelectionModel().selectFirst();
 			btnFind=new Button("Find");
-			btnFind.setPrefWidth(100);	
-			
+			btnFind.setPrefWidth(100);
+
+			gp5.add(cbImage, 0, 0);
+			gp5.add(btnImageChooser, 1, 0);
 			gp5.add(lbSpeed, 0, 1);
 			gp5.add(cmbSpeed, 1, 1);
 			gp5.add(btnFind, 0, 2);
@@ -213,19 +216,17 @@ public class MainView extends Stage implements ISubscriber{
 			
 			findPathController=new FindPathController();
 			btnFind.setOnAction(findPathController);
+			chooseImageController=new ChooseImageController();
+			btnImageChooser.setOnAction(chooseImageController);
 			
 			isSetBoard=true;
+
 		}
 		
 		//Dependent of rows and columns
 		cmbAlg.getItems().remove(AlgorithmType.TileByTile);
 		if(rows>3)
 			cmbAlg.getItems().add(AlgorithmType.TileByTile);
-		
-		cbImage.setSelected(false);
-		gp5.getChildren().remove(cbImage);
-		if(rows==columns && rows<6)
-			gp5.add(cbImage, 0, 0);	
 		
 		previousStartBoard=null;
 	}
@@ -268,12 +269,12 @@ public class MainView extends Stage implements ISubscriber{
 				if(board[i][j]!=0)
 				{
 					int num=Math.abs(board[i][j])-1;
-					int currRow=num/rows;
+					int currRow=num/columns;
 					int currCol=num%columns;
-					tfsStart[i][j].setId("tfsStart"+currRow+currCol);
+					tfsStart[i][j].setStyle("-fx-background-image: url(\"view/userImages/img"+currRow+currCol+timestamp+".jpg\");-fx-background-repeat: no-repeat;-fx-background-size: 100% 100%;");
 				}
 				else
-					tfsStart[i][j].setId("emptyField");
+					tfsStart[i][j].setStyle("-fx-background-color:white");
 
 			}
 	}
@@ -349,6 +350,14 @@ public class MainView extends Stage implements ISubscriber{
 	
 	public AlgorithmType getCmbAlg() {
 		return cmbAlg.getSelectionModel().getSelectedItem();
+	}
+
+	public long getTimestamp() {
+		return timestamp;
+	}
+
+	public void setTimestamp(long timestamp) {
+		this.timestamp = timestamp;
 	}
 
 	@Override
