@@ -16,11 +16,11 @@ import java.util.Date;
 
 public class ChooseImageController implements EventHandler<ActionEvent> {
 
-    String ln=System.lineSeparator();
+    String ln=File.separator;
 
     @Override
     public void handle(ActionEvent actionEvent) {
-
+        System.out.println(ln);
         try {
             long timestamp=System.currentTimeMillis();
             MainView.getInstance().setTimestamp(timestamp);
