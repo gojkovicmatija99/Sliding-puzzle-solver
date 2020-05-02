@@ -1,17 +1,10 @@
 package model.algorithm;
 
 import java.util.Deque;
-import java.util.HashSet;
 import java.util.LinkedList;
-import java.util.List;
-import java.util.PriorityQueue;
-import java.util.Set;
 import java.util.Stack;
 
-import model.exceptions.PuzzleNumbersException;
 import model.state.State;
-import model.state.StateComparator;
-import model.state.StateGenerator;
 import view.MainView;
 
 public class TileByTile extends Algorithm{
@@ -43,9 +36,9 @@ public class TileByTile extends Algorithm{
 				int numOfBottomRows=rows-currRow;
 				State.setRows(numOfBottomRows);
 				
-				int[][] newInitialBoard=new int[numOfBottomRows][columns];
-				int[][] newGoalBoard=new int[numOfBottomRows][columns];
-				int[][] previousBoard=new int[numOfBottomRows][columns];
+				int[][] newInitialBoard;
+				int[][] newGoalBoard;
+				int[][] previousBoard;
 				
 				//Start from initialState
 				if(currRow==0 && numOfTilesToSort==1)
@@ -60,16 +53,16 @@ public class TileByTile extends Algorithm{
 
 				//If true sort two by two tiles, else sort whole board
 				if(twoByTwoTiles)
-					newInitialBoard=pripritizeTiles(goalBoard[currRow], newInitialBoard, numOfBottomRows, columns, numOfTilesToSort);
+					newInitialBoard= prioritizeTiles(goalBoard[currRow], newInitialBoard, numOfBottomRows, columns, numOfTilesToSort);
 				
 				State newInitialState=new State(newInitialBoard, null);
 				State newGoalState=new State(newGoalBoard,null);
 				
-				IterativeDeepeningAStar ida=new IterativeDeepeningAStar(newInitialState, newGoalState);
-				ida.addSubscriber(MainView.getInstance());
-				stack=ida.solve();
-				this.numOfSteps+=ida.getNumOfSteps();
-				this.nodeExplored+=ida.getNodeExplored();
+				AStar aStar=new AStar(newInitialState, newGoalState);
+				aStar.addSubscriber(MainView.getInstance());
+				stack=aStar.solve();
+				this.numOfSteps+=aStar.getNumOfSteps();
+				this.nodeExplored+=aStar.getNodeExplored();
 				
 				//Add top half that was ignored
 				addTopHalf(stack,goalBoard,rows,columns,currRow);
@@ -79,7 +72,7 @@ public class TileByTile extends Algorithm{
 		return dequeToStack(deque);
 	}
 	
-	private int[][] pripritizeTiles(int[] pattern,int[][] initialBoard,int rows,int columns,int limit)
+	private int[][] prioritizeTiles(int[] pattern, int[][] initialBoard, int rows, int columns, int limit)
 	{
 		//Prioritize all tiles
 		for(int i=0;i<rows;i++)

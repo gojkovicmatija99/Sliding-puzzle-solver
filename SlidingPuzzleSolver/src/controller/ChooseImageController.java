@@ -20,7 +20,6 @@ public class ChooseImageController implements EventHandler<ActionEvent> {
 
     @Override
     public void handle(ActionEvent actionEvent) {
-        System.out.println(ln);
         try {
             long timestamp=System.currentTimeMillis();
             MainView.getInstance().setTimestamp(timestamp);
