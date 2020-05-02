@@ -7,6 +7,7 @@ The Sliding puzzle game consists of a frame of numbered square tiles in random o
 8-puzzle ( 9 tiles, 9! = 362,880 permutations )  
 15-puzzle ( 16 tiles, 16! = 20,922,789,888,000‬ permutations )  
 24-puzzle ( 25 tiles , 25! = 15,511,210,043,330,985,984,000,000‬ permutations )  
+35-puzzle ( 36 tiles , 36! = 371,993,326,789,901,217,467,999,448,150,835,200,000,000 permutations ) 
 
 # Algorithms
  
