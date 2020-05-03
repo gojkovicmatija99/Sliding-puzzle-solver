@@ -51,6 +51,8 @@ public class FindPathController implements EventHandler<ActionEvent> {
 			}
 			
 			if(usesImage) {
+				PartitionImage partitionImage=new PartitionImage();
+				partitionImage.divide();
 				MainView.getInstance().setImages(initalBoard);
 				MainView.getInstance().clearAll();
 			}

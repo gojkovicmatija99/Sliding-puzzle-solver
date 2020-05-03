@@ -1,5 +1,6 @@
 package view;
 
+import java.io.File;
 import java.text.NumberFormat;
 import java.util.Locale;
 
@@ -17,7 +18,6 @@ import javafx.scene.control.TextField;
 import javafx.scene.image.Image;
 import javafx.scene.layout.GridPane;
 
-import javafx.stage.FileChooser;
 import javafx.stage.Stage;
 import model.algorithm.AlgorithmType;
 import model.heuristic.HeuristicType;
@@ -30,6 +30,7 @@ public class MainView extends Stage implements ISubscriber{
 	private int[][] previousStartBoard;
 	private boolean isSetBoard=false;
 	private long timestamp;
+	private File imageFile;
 	
 	private TextField[][] tfsStart;
 	private TextField tfLvl;
@@ -76,11 +77,14 @@ public class MainView extends Stage implements ISubscriber{
 	private MainView()
 	{
 		this.setTitle("Sliding Puzzle Solver");
-		this.getIcons().add(new Image(
-			      MainView.class.getResourceAsStream( "images/favicon.png" ))); 
+		this.getIcons().add(new Image(MainView.class.getResourceAsStream( "images/favicon.png" )));
+
 		this.setResizable(false);
 		gpMain=new GridPane();
 		gpMain.setPadding(new Insets(20));
+
+		String ln=File.separator;
+		this.setImageFile(new File("SlidingPuzzleSolver"+ln+"bin"+ln+"view"+ln+"images"+ln+"defaultImage.jpg"));
 		
 		gp2=new GridPane();
 		gp3=new GridPane();
@@ -358,6 +362,14 @@ public class MainView extends Stage implements ISubscriber{
 
 	public void setTimestamp(long timestamp) {
 		this.timestamp = timestamp;
+	}
+
+	public File getImageFile() {
+		return imageFile;
+	}
+
+	public void setImageFile(File image) {
+		this.imageFile = image;
 	}
 
 	@Override
