@@ -7,6 +7,7 @@ The Sliding puzzle game consists of a frame of numbered square tiles in random o
 8-puzzle ( 9 tiles, 9! = 362,880 permutations )  
 15-puzzle ( 16 tiles, 16! = 20,922,789,888,000‬ permutations )  
 24-puzzle ( 25 tiles , 25! = 15,511,210,043,330,985,984,000,000‬ permutations )  
+35-puzzle ( 36 tiles , 36! = 371,993,326,789,901,217,467,999,448,150,835,200,000,000 permutations ) 
 
 # Algorithms
  
@@ -22,7 +23,7 @@ The Sliding puzzle game consists of a frame of numbered square tiles in random o
 *Pros:* does not store too many states  
 *Cons:* visits same states
 
-**Tile by tile** is a algorithm where the puzzle is divided into two parts: upper and lower half. The upper half works by solving two by two tiles and when a row is completed, cut it and don't search it anymore. The lower half works like the previous algorithms by solving the puzzle all at once. It is implemented using IDA*.  
+**Tile by tile** is a algorithm where the puzzle is divided into two parts: upper and lower half. The upper half works by solving two by two tiles and when a row is completed, cut it and don't search it anymore. The lower half works like the previous algorithms by solving the puzzle all at once. It is implemented using A*.  
 *Pros:* much more efficient than previous algorithms despite puzzle size  
 *Cons:* uses too many unnecessary moves
 
