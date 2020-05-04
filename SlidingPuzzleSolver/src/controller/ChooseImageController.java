@@ -11,10 +11,10 @@ public class ChooseImageController implements EventHandler<ActionEvent> {
     @Override
     public void handle(ActionEvent actionEvent) {
         FileChooser.ExtensionFilter extFilter = new FileChooser.ExtensionFilter("JPG files (*.jpg)", "*.jpg");
-        FileChooser fileChooser=new FileChooser();
+        FileChooser fileChooser = new FileChooser();
         fileChooser.getExtensionFilters().add(extFilter);
-        File file=fileChooser.showOpenDialog(MainView.getInstance());
-        if(file!=null)
+        File file = fileChooser.showOpenDialog(MainView.getInstance());
+        if (file != null)
             MainView.getInstance().setImageFile(file);
     }
 }

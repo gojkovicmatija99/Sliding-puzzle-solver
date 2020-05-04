@@ -8,21 +8,21 @@ import java.io.File;
 import java.io.IOException;
 
 public class PartitionImage {
-    private String ln=File.separator;
+    private String ln = File.separator;
 
     public void divide() {
         try {
-            long timestamp=System.currentTimeMillis();
+            long timestamp = System.currentTimeMillis();
             MainView.getInstance().setTimestamp(timestamp);
 
-            if(!makeImageFolder())
+            if (!makeImageFolder())
                 removeOldImages();
 
             //Provide number of rows and column
             int row = MainView.getInstance().getRows();
             int col = MainView.getInstance().getColumns();
 
-            File file=MainView.getInstance().getImageFile();
+            File file = MainView.getInstance().getImageFile();
             BufferedImage originalImage = ImageIO.read(file);
 
             //total width and total height of an image
@@ -41,7 +41,7 @@ public class PartitionImage {
                 for (int j = 0; j < col; j++) {
                     try {
                         BufferedImage SubImage = originalImage.getSubimage(y, x, eWidth, eHeight);
-                        File outputfile = new File("SlidingPuzzleSolver"+ln+"bin"+ln+"view"+ln+"userImages"+ln+"img"+i+j+timestamp+".jpg");
+                        File outputfile = new File("SlidingPuzzleSolver" + ln + "bin" + ln + "view" + ln + "userImages" + ln + "img" + i + j + timestamp + ".jpg");
                         ImageIO.write(SubImage, "jpg", outputfile);
 
                         y += eWidth;
@@ -61,22 +61,21 @@ public class PartitionImage {
 
     private void removeOldImages() {
         try {
-            File imageFolder=new File("SlidingPuzzleSolver"+ln+"bin"+ln+"view"+ln+"userImages"+ln);
-            String[] images=imageFolder.list();
+            File imageFolder = new File("SlidingPuzzleSolver" + ln + "bin" + ln + "view" + ln + "userImages" + ln);
+            String[] images = imageFolder.list();
 
-            for(String s: images) {
+            for (String s : images) {
                 File currentFile = new File(imageFolder.getPath(), s);
                 currentFile.delete();
             }
-        }
-        catch (NullPointerException e){
+        } catch (NullPointerException e) {
 
         }
 
     }
 
     private Boolean makeImageFolder() {
-        File imageFolder=new File("SlidingPuzzleSolver"+ln+"bin"+ln+"view"+ln+"userImages"+ln);
+        File imageFolder = new File("SlidingPuzzleSolver" + ln + "bin" + ln + "view" + ln + "userImages" + ln);
         return imageFolder.mkdir();
     }
 }

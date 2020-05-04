@@ -6,13 +6,13 @@ import view.MainView;
 
 public class Main extends Application {
 
-	@Override
-	public void start(Stage arg0) throws Exception {
-		MainView.getInstance();	
-	}
-	
-	public static void main(String[] args) {
-		launch(args);
-	}
+    public static void main(String[] args) {
+        launch(args);
+    }
+
+    @Override
+    public void start(Stage arg0) throws Exception {
+        MainView.getInstance();
+    }
 
 }

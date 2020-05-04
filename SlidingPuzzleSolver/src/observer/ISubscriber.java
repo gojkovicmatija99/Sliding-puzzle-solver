@@ -1,5 +1,5 @@
 package observer;
 
 public interface ISubscriber {
-	public void update(int nodes);
+    public void update(int nodes);
 }
