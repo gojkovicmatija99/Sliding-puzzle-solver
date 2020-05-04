@@ -37,6 +37,7 @@ The Sliding puzzle game consists of a frame of numbered square tiles in random o
 
 # How to use  
 User can set a custom board by typing in the grid (not all custom puzzles are solvable) or by pressing the random button (all generated puzzles are solvable).  
+User can select a custom image or use the default one below.
 
 8-puzzle: can be solved using any algorithm and heuristic  
 15-puzzle: can be solved using IDA* or tile by tile paired with linear conflict  
