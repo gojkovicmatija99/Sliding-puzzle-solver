@@ -1,31 +1,21 @@
 package controller;
 
-import java.awt.event.ActionListener;
-import java.util.Stack;
-
-import javax.swing.Timer;
-
 import javafx.application.Platform;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Alert.AlertType;
-import model.algorithm.AStar;
-import model.algorithm.Algorithm;
-import model.algorithm.AlgorithmType;
-import model.algorithm.BreathFirstSearch;
-import model.algorithm.IterativeDeepeningAStar;
-import model.algorithm.TileByTile;
+import javafx.scene.control.ButtonType;
+import model.algorithm.*;
 import model.exceptions.PuzzleNumbersException;
-import model.heuristic.Hamming;
-import model.heuristic.HeuristicType;
-import model.heuristic.IHeuristic;
-import model.heuristic.LinearConflict;
-import model.heuristic.Manhatten;
+import model.heuristic.*;
 import model.state.State;
 import model.state.StateGenerator;
 import view.MainView;
-import javafx.scene.control.ButtonType;
+
+import javax.swing.*;
+import java.awt.event.ActionListener;
+import java.util.Stack;
 
 public class FindPathController implements EventHandler<ActionEvent> {
 	private boolean isThreadRunning=false;

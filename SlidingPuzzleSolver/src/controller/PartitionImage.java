@@ -1,6 +1,5 @@
 package controller;
 
-import javafx.stage.FileChooser;
 import view.MainView;
 
 import javax.imageio.ImageIO;

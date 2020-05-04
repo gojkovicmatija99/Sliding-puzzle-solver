@@ -1,11 +1,10 @@
 package model.algorithm;
 
-import java.util.Stack;
-
-import model.exceptions.PuzzleNumbersException;
 import model.state.State;
 import observer.IPublisher;
 import observer.ISubscriber;
+
+import java.util.Stack;
 
 public abstract class Algorithm implements IPublisher{
 	protected ISubscriber subscriber;

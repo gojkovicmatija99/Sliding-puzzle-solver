@@ -1,10 +1,9 @@
 package model.state;
 
-import java.awt.Point;
-
-import java.util.Stack;
-
 import model.heuristic.IHeuristic;
+
+import java.awt.*;
+import java.util.Stack;
 
 public class State{
 	private static IHeuristic heuristic;

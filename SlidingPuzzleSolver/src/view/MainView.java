@@ -1,27 +1,21 @@
 package view;
 
-import java.io.File;
-import java.text.NumberFormat;
-import java.util.Locale;
-
 import controller.*;
 import javafx.application.Platform;
 import javafx.geometry.Insets;
 import javafx.geometry.Pos;
-
 import javafx.scene.Scene;
-import javafx.scene.control.Button;
-import javafx.scene.control.CheckBox;
-import javafx.scene.control.ComboBox;
-import javafx.scene.control.Label;
-import javafx.scene.control.TextField;
+import javafx.scene.control.*;
 import javafx.scene.image.Image;
 import javafx.scene.layout.GridPane;
-
 import javafx.stage.Stage;
 import model.algorithm.AlgorithmType;
 import model.heuristic.HeuristicType;
 import observer.ISubscriber;
+
+import java.io.File;
+import java.text.NumberFormat;
+import java.util.Locale;
 
 public class MainView extends Stage implements ISubscriber{
 	private static MainView instance=null;
@@ -281,6 +275,8 @@ public class MainView extends Stage implements ISubscriber{
 					tfsStart[i][j].setStyle("-fx-background-color:white");
 
 			}
+
+			tfsStart[0][0].getStylesheets().add("fade-in");
 	}
 	
 	public void setTfNode(int node) {

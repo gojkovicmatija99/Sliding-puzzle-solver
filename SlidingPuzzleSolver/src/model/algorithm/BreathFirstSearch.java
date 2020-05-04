@@ -1,15 +1,9 @@
 package model.algorithm;
 
-import java.util.HashSet;
-import java.util.LinkedList;
-import java.util.List;
-import java.util.Queue;
-import java.util.Set;
-import java.util.Stack;
-
-import model.exceptions.PuzzleNumbersException;
 import model.state.State;
 import model.state.StateGenerator;
+
+import java.util.*;
 
 public class BreathFirstSearch extends Algorithm {
 	

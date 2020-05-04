@@ -6,3 +6,16 @@
     -fx-font-weight: bold;
     -fx-background-size: 80px;
 }
+
+#fade-in {
+  height: 1px;
+  width: 80px;
+  opacity: 1;
+  transition: all 10s ease;
+}
+
+#fade-in.show {
+  opacity: 1;
+  height: 80px;
+  width: 80px;
+}

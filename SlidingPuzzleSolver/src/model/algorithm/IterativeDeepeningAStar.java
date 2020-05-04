@@ -1,15 +1,10 @@
 package model.algorithm;
 
-import java.util.HashSet;
-import java.util.List;
-import java.util.PriorityQueue;
-import java.util.Set;
-import java.util.Stack;
-
-import model.exceptions.PuzzleNumbersException;
 import model.state.State;
 import model.state.StateComparator;
 import model.state.StateGenerator;
+
+import java.util.*;
 
 public class IterativeDeepeningAStar extends Algorithm {
 	

@@ -1,8 +1,8 @@
 package model.heuristic;
 
-import java.awt.Point;
-
 import model.state.State;
+
+import java.awt.*;
 
 public class Manhatten implements IHeuristic {
 

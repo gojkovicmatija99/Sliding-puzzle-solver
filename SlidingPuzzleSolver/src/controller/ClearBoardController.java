@@ -1,7 +1,5 @@
 package controller;
 
-import java.util.Arrays;
-
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import view.MainView;

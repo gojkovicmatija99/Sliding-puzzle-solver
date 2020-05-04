@@ -1,11 +1,11 @@
 package model.algorithm;
 
+import model.state.State;
+import view.MainView;
+
 import java.util.Deque;
 import java.util.LinkedList;
 import java.util.Stack;
-
-import model.state.State;
-import view.MainView;
 
 public class TileByTile extends Algorithm{
 	

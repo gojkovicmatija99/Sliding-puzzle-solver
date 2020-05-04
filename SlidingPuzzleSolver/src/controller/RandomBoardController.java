@@ -1,12 +1,12 @@
 package controller;
 
-import java.util.List;
-
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import model.state.State;
 import model.state.StateGenerator;
 import view.MainView;
+
+import java.util.List;
 
 public class RandomBoardController implements EventHandler<ActionEvent>{
 
