@@ -20,6 +20,7 @@ public class BreathFirstSearch extends Algorithm {
         StateGenerator generator = new StateGenerator();
 
         queue.add(initialState);
+        visited.add(initialState);
         while (!queue.isEmpty()) {
             nodeExplored++;
             //Updates View every 100 000 nodes explored
@@ -32,12 +33,15 @@ public class BreathFirstSearch extends Algorithm {
                 toReturn = current.getPath();
                 return toReturn;
             }
-            visited.add(current);
+
             List<State> nextStates = generator.generateStates(current);
             for (State state : nextStates) {
                 state.setDepth();
-                if (!visited.contains(state))
+                if (!visited.contains(state)){
                     queue.add(state);
+                    visited.add(state);
+                }
+
             }
         }
         return toReturn;

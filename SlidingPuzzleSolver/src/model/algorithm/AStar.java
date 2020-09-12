@@ -21,6 +21,7 @@ public class AStar extends Algorithm {
         StateGenerator generator = new StateGenerator();
 
         queue.add(initialState);
+        visited.add(initialState);
         while (!queue.isEmpty()) {
             nodeExplored++;
             //Updates view every 100 000 nodes explored
@@ -33,12 +34,13 @@ public class AStar extends Algorithm {
                 toReturn = current.getPath();
                 return toReturn;
             }
-            visited.add(current);
             List<State> nextStates = generator.generateStates(current);
             for (State state : nextStates) {
                 state.setHeuristicValue(goalState);
-                if (!visited.contains(state))
+                if (!visited.contains(state)) {
                     queue.add(state);
+                    visited.add(state);
+                }
             }
         }
         return toReturn;

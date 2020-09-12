@@ -25,10 +25,9 @@ public class IterativeDeepeningAStar extends Algorithm {
 
             double min_above = Integer.MAX_VALUE;
             queue.add(initialState);
-
+            explored.add(initialState);
             while (!queue.isEmpty()) {
                 State current = queue.poll();
-                explored.add(current);
                 nodeExplored++;
                 //Updates View every 100 000 nodes explored
                 if (nodeExplored % 100000 == 0)
@@ -54,6 +53,7 @@ public class IterativeDeepeningAStar extends Algorithm {
                         continue;
                     }
                     queue.add(state);
+                    explored.add(state);
                 }
             }
             cutoff = min_above;
