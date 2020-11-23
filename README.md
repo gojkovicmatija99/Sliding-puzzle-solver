@@ -46,4 +46,4 @@ User can select a custom image or use the default one below.
 
 
 
-![alt text](https://github.com/gojkovicmatija99/Sliding-puzzle-solver/blob/master/SlidingPuzzleSolver/src/view/images/Demo.png)
+![alt text](https://github.com/gojkovicmatija99/Sliding-puzzle-solver/blob/master/SlidingPuzzleSolver/src/view/images/puzzle.gif)
