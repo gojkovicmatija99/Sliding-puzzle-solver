@@ -46,5 +46,5 @@ User can select a custom image or use the default one below.
 
 
 <p align="center">
-  <img width="460" height="300" src="https://github.com/gojkovicmatija99/Sliding-puzzle-solver/blob/master/SlidingPuzzleSolver/src/view/images/puzzle.gif">
+  <img src="https://github.com/gojkovicmatija99/Sliding-puzzle-solver/blob/master/SlidingPuzzleSolver/src/view/images/puzzle.gif">
 </p>
